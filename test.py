@@ -22,15 +22,13 @@ with open('data/names.pkl', 'rb') as w:
 with open('data/faces_data.pkl', 'rb') as f:
     FACES=pickle.load(f)
 
-print('Shape of Faces matrix --> ', FACES.shape)
+# print('Shape of Faces matrix --> ', FACES.shape)
 
 knn=KNeighborsClassifier(n_neighbors=5)
 knn.fit(FACES, LABELS)
 
 imgBackground=cv2.imread("background.png")
-
 COL_NAMES = ['NAME', 'TIME']
-
 while True:
     ret,frame=video.read()
     gray=cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
